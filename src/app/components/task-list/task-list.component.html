@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="h1 text-center mb-4">Task List</div>
+    <div class="container d-flex flex-column gap-4">
+        <div class="task-item row p-4 bg-dark text-light rounded" *ngFor="let task of taskList">
+            <div class="col">
+                {{task.title}}
+            </div>
+            <div class="col">
+                {{task.description}}
+            </div>
+            <div class="col text-center">
+                <button *ngIf="task.completed" class="btn btn-success" disabled>Completed</button>
+                <button *ngIf="!task.completed" class="btn btn-primary" (click)="markComplete(task.id)">Complete</button>
+            </div>
+            <div class="col text-center">
+                <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
