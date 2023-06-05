@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
@@ -11,14 +12,14 @@ export class AddTaskFormComponent {
   taskTitle = '';
   taskDescription = '';
 
-  constructor(private tasksService: TasksService) {}
+  constructor(private tasksService: TasksService, private router: Router) {}
 
   submitForm(): void {
     this.tasksService.createTask({
       title: this.taskTitle,
       description: this.taskDescription,
     }).pipe().subscribe(res => {
-
+      this.router.navigate(['/'])
     })
   }
 }
