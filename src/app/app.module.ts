@@ -8,6 +8,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { AddTaskFormComponent } from './components/add-task-form/add-task-form.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
