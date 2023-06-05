@@ -1,17 +1,17 @@
 <div class="container">
     <div class="h1 text-center mb-4">Add New Task</div>
 
-    <form class="container">
+    <div class="container">
         <div class="row mb-4 justify-content-center">
             <label class="col-12 col-lg-3 border-bottom border-black mt-auto" for="taskTitle">Title: </label>
-            <input class="col-12 col-lg-3" name="taskTitle" [(ngModel)]="taskTitle" #ctrl="ngModel" required/>
+            <input class="col-12 col-lg-3" [(ngModel)]="taskTitle" required/>
         </div>
         <div class="row mb-4 justify-content-center">
             <label class="col-12 col-lg-3 border-bottom border-black mt-auto" for="taskDescription">Description: </label>
-            <textarea class="col-12 col-lg-3" name="taskDescription" [(ngModel)]="taskDescription" #ctrl="ngModel" required></textarea>
+            <textarea class="col-12 col-lg-3" [(ngModel)]="taskDescription" required></textarea>
         </div>
         <div class="row justify-content-center">
             <button class="col-12 col-lg-2 btn btn-success" (click)="submitForm()">Create Task</button>
         </div>
-    </form>
+    </div>
 </div>

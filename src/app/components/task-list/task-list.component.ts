@@ -9,8 +9,6 @@ import { TasksService } from 'src/app/services/tasks.service';
 export class TaskListComponent {
   taskList = [
     {id: 1, title: 'Cats', description: 'Feed them.', completed: false},
-    {id: 2, title: 'Laundary', description: 'Gather my laundary and do it.', completed: false},
-    {id: 3, title: 'Groceries', description: 'Pick up milk, eggs, and fabric softener', completed: true},
   ]
 
   constructor(private tasksService: TasksService) {

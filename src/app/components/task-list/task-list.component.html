@@ -1,6 +1,6 @@
 <div class="container">
     <div class="h1 text-center mb-4">Task List</div>
-    <div class="container d-flex flex-column gap-4">
+    <div *ngIf="taskList.length > 0" class="container d-flex flex-column gap-4">
         <div class="task-item row p-4 bg-dark text-light rounded" *ngFor="let task of taskList">
             <div class="col">
                 {{task.title}}
@@ -16,5 +16,11 @@
                 <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
             </div>
         </div>
+        <div class="text-center">
+            <button class="btn btn-success btn-lg" routerLink="/add">Add New Task</button>
+        </div>
+    </div>
+    <div *ngIf="taskList.length === 0">
+        <div class="h3 text-center mt-4">No Tasks Available. Please <a routerLink="/add">create a task!</a></div>
     </div>
 </div>
