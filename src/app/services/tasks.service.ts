@@ -14,8 +14,8 @@ export class TasksService {
     return this.http.get<any[]>(`${this.tasksUrl}`);
   }
 
-  markComplete(id: number): Observable<any> {
-    return this.http.patch<any>(`${this.tasksUrl}/${id}`, {completed: true});
+  updateTaskStatus(id: number, status: boolean): Observable<any> {
+    return this.http.patch<any>(`${this.tasksUrl}/${id}`, {completed: status});
   }
 
   deleteTask(id: number): Observable<any> {

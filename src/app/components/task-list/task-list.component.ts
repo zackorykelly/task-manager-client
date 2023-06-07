@@ -24,7 +24,13 @@ export class TaskListComponent {
   }
 
   markComplete(id: number): void {
-    this.tasksService.markComplete(id).pipe().subscribe(res => {
+    this.tasksService.updateTaskStatus(id, true).pipe().subscribe(res => {
+      this.getTasks()
+    })
+  }
+
+  revertComplete(id: number): void {
+    this.tasksService.updateTaskStatus(id, false).pipe().subscribe(res => {
       this.getTasks()
     })
   }
