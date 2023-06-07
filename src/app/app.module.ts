@@ -8,7 +8,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { AddTaskFormComponent } from './components/add-task-form/add-task-form.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

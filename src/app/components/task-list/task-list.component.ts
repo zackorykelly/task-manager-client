@@ -7,9 +7,7 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent {
-  taskList = [
-    {id: 1, title: 'Cats', description: 'Feed them.', completed: false},
-  ]
+  taskList: Array<any> = []
 
   constructor(private tasksService: TasksService) {
 

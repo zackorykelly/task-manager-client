@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TasksService } from 'src/app/services/tasks.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task-form',
@@ -9,17 +10,32 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./add-task-form.component.css']
 })
 export class AddTaskFormComponent {
-  taskTitle = '';
-  taskDescription = '';
+  taskForm!: FormGroup;
 
-  constructor(private tasksService: TasksService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private tasksService: TasksService, private router: Router) {}
 
-  submitForm(): void {
-    this.tasksService.createTask({
-      title: this.taskTitle,
-      description: this.taskDescription,
-    }).pipe().subscribe(res => {
+  ngOnInit() {
+    this.taskForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    //Incase submit is triggered with invalid form, return prematurely
+    if (this.taskForm.invalid) {
+      return
+    }
+
+    const {title, description} = this.taskForm.value;
+
+    this.tasksService.createTask({title, description}).pipe().subscribe(res => {
+      //Go back to home after new task created
       this.router.navigate(['/'])
+    }, err => {
+      console.error(err)
     })
+
+    this.taskForm.reset();
   }
 }
