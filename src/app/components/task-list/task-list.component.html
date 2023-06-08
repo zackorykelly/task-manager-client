@@ -1,24 +1,24 @@
 <div class="container">
     <div class="h1 text-center mb-4">Task List</div>
     <div *ngIf="taskList.length > 0" class="container d-flex flex-column gap-4">
-        <div class="task-item row p-4 bg-dark text-light rounded" *ngFor="let task of taskList" style="height: 110px;">
-            <div class="col-2">
-                {{task.title}}
-            </div>
-            <div class="col-6 text-truncate">
-                <div class="text-truncate" [ngbTooltip]="task.description" placement="top">
-                    {{task.description}}
+        <div class="task-item row gap-4 gap-md-0 p-4 bg-dark text-light rounded" *ngFor="let task of taskList" style="min-height: 120px;">
+            <div class="col-12 col-md-8 text-truncate">
+                <span class="fw-bold text-decoration-underline">{{task.title}}</span>
+                <div class="text-truncate mt-2" [ngbTooltip]="task.description.length > 80 ? task.description : null" placement="top">
+                        {{task.description}}
                 </div>
             </div>
-            <div class="col-2 text-center">
-                <div *ngIf="task.completed" class="">
-                    <button class="btn btn-success" disabled>Completed</button>
-                    <a href="#" class="d-block link-info" (click)="revertComplete(task.id)">Revert</a>
+            <div class="col-12 col-md-4 d-flex flex-row text-center justify-content-around align-self-center">
+                <div>
+                    <div *ngIf="task.completed">
+                        <button class="btn btn-success" disabled>Completed</button>
+                        <a href="#" class="d-block link-info" (click)="revertComplete(task.id)">Revert</a>
+                    </div>
+                    <button *ngIf="!task.completed" class="btn btn-primary" (click)="markComplete(task.id)">Complete</button>
                 </div>
-                <button *ngIf="!task.completed" class="btn btn-primary" (click)="markComplete(task.id)">Complete</button>
-            </div>
-            <div class="col-2 text-center">
-                <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+                <div>
+                    <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+                </div>
             </div>
         </div>
         <div class="text-center">
