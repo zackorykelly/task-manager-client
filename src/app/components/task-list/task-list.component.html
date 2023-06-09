@@ -12,9 +12,9 @@
                 <div>
                     <div *ngIf="task.completed">
                         <button class="btn btn-success" disabled>Completed</button>
-                        <a href="#" class="d-block link-info" (click)="revertComplete(task.id)">Revert</a>
+                        <a href="#" class="d-block link-info" (click)="revertComplete(task)">Revert</a>
                     </div>
-                    <button *ngIf="!task.completed" class="btn btn-primary" (click)="markComplete(task.id)">Complete</button>
+                    <button *ngIf="!task.completed" class="btn btn-primary" (click)="markComplete(task)">Complete</button>
                 </div>
                 <div>
                     <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>

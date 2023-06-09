@@ -23,21 +23,21 @@ export class TaskListComponent {
     })
   }
 
-  markComplete(id: number): void {
-    this.tasksService.updateTaskStatus(id, true).pipe().subscribe(res => {
-      this.getTasks()
+  markComplete(task: any): void {
+    this.tasksService.updateTaskStatus(task.id, true).pipe().subscribe(res => {
+      task.completed = true
     })
   }
 
-  revertComplete(id: number): void {
-    this.tasksService.updateTaskStatus(id, false).pipe().subscribe(res => {
-      this.getTasks()
+  revertComplete(task: any): void {
+    this.tasksService.updateTaskStatus(task.id, false).pipe().subscribe(res => {
+      task.completed = false
     })
   }
 
   deleteTask(id: number): void {
     this.tasksService.deleteTask(id).pipe().subscribe(res => {
-      this.getTasks()
+      this.taskList = this.taskList.filter((task) => task.id !== id)
     })
   }
 }
