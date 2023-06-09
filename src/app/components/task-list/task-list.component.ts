@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-list',
@@ -10,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 export class TaskListComponent {
   taskList: Array<any> = []
 
-  constructor(private tasksService: TasksService, private toastr: ToastrService) {
+  constructor(private tasksService: TasksService) {
 
   }
 
@@ -26,7 +25,6 @@ export class TaskListComponent {
 
   markComplete(id: number): void {
     this.tasksService.updateTaskStatus(id, true).pipe().subscribe(res => {
-      this.toastr.success("Task updated succesfully!")
       this.getTasks()
     })
   }

@@ -10,7 +10,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { ToastrModule } from 'ngx-toastr';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
